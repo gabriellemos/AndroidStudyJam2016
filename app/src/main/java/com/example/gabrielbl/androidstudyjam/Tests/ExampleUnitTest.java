@@ -1,7 +1,6 @@
 package com.example.gabrielbl.androidstudyjam.Tests;
 
-import com.example.gabrielbl.androidstudyjam.DataBase.CineserclaCrowler;
-import com.example.gabrielbl.androidstudyjam.Models.Filme;
+import com.example.gabrielbl.androidstudyjam.Models.Movie;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,7 +10,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -42,9 +40,9 @@ public class ExampleUnitTest {
         String tabProximos = "tabs-2";
         String defaultURL = "www.cinesercla.com.br";
 
-        Filme filme;
-        List<Filme> filmesEmCartaz = new ArrayList<Filme>();
-        List<Filme> filmesProximos = new ArrayList<Filme>();
+        Movie filme;
+        List<Movie> filmesEmCartaz = new ArrayList<Movie>();
+        List<Movie> filmesProximos = new ArrayList<Movie>();
 
         if (!url.contains(defaultURL)) {
             return; // LEAVE NOW!
@@ -78,9 +76,9 @@ public class ExampleUnitTest {
         System.out.println(filmesProximos);
     }
 
-    private Filme processaFilmeURL(String url) throws IOException {
+    private Movie processaFilmeURL(String url) throws IOException {
 
-        Filme filme;
+        Movie filme;
         Element tab;
         Document doc;
         Elements elements;
@@ -92,7 +90,7 @@ public class ExampleUnitTest {
             return null; // LEAVE NOW!
         }
 
-        filme = new Filme();
+        filme = new Movie();
 
         // Informações da página
         doc = Jsoup.connect(url).get();
